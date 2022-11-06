@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<head>
+    <title>CRUD OPERATION WITH POSTGRESQL</title>
+</head>
+<body>
+    <center>
+        <h1>HOSPITAL MANAGEMENT SYSTEM</h1>
+        <h3>WRITTEN BY GROUP 4</h3>
+        <hr/>
+        <a href = "{% url 'insertemp' %}">Create New Doctor</a>
+        <table border="1">
+            <h3>DOCTOR TABLE</h3>
+
+            <tr>
+                <th>dateOfBirth</th>
+                <th>IIN</th>
+                <th>ID</th>
+                <th>empname</th>
+                <th>contact</th>
+                <th>departmentID</th>
+                <th>specializationID</th>
+                <th>experience</th>
+                <th>photo</th>
+                <th>category</th>
+                <th>price</th>
+                <th>schedule</th>
+                <th>education</th>
+                <th>rating</th>
+                <th>address</th>
+            </tr>
+            {% for result in data %}
+            <tr>
+            
+                <td>{{result.dateofbirth}}</td>
+                <td>{{result.iin}}</td>
+                <td>{{result.id}}</td>
+                <td>{{result.empname}}</td>
+                <td>{{result.contact}}</td>
+                <td>{{result.departmentid}}</td>
+                <td>{{result.specializationid}}</td>
+                <td>{{result.experience}}</td>
+                <td>{{result.photo}}</td>
+                <td>{{result.category}}</td>
+                <td>{{result.price}}</td>
+                <td>{{result.schedule}}</td>
+                <td>{{result.education}}</td>
+                <td>{{result.rating}}</td>
+                <td>{{result.address}}</td>
+
+
+                <td><a href="edit/{{result.id}}">Edit</a></td>
+                <td><a href="Delete/{{result.id}}" onclick="return confirm('Are you sure that you want to delete it?')">Delete</a></td>
+
+            </tr>
+            
+            {% endfor %}
+
+        </table>
+        <h3>PATIENT TABLE</h3>
+
+        <table border="2">
+            <tr>
+                <th>ID</th>
+                <th>dateOfBirth</th>
+                <th>IIN</th>
+                <th>Full Name</th>
+                <th>Blood Group</th>
+                <th>Emergency contact number</th>
+                <th>Contact Number</th>
+                <th>Address</th>
+                <th>Martial status</th>
+                <th>Registration date</th>
+                
+            </tr>
+            {% for result in patdata %}
+            <tr>
+                <td>{{result.id}}</td>
+                <td>{{result.dateofbirth}}</td>
+                <td>{{result.iin}}</td>
+                <td>{{result.fullname}}</td>
+                <td>{{result.bloodgroup}}</td>
+                <td>{{result.emergency_number}}</td>
+
+                <td>{{result.contact}}</td>
+                <td>{{result.address}}</td>
+                <td>{{result.marital}}</td>
+                <td>{{result.registration}}</td>
+               
+                <td><a href="edit/{{result.id}}">Edit</a></td>
+                <td><a href="Delete/{{result.id}}" onclick="return confirm('Are you sure that you want to delete it?')">Delete</a></td>
+
+            </tr>
+            
+            {% endfor %}
+
+        </table>
+
+
+    </center>
+</body>
+</html>
