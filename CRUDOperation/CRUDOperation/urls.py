@@ -23,7 +23,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.showemp, name = "showemp"),
     path('Insert',views.insertemp,name="insertemp"),
+    path('InsertPatient', views.insertpatient, name="insertpatient"),
+    path('editpatient/<int:id>', views.editpatient, name="editpatient"),
+    path('UpdatePatient/<int:id>',views.updatepatient, name="updatepatient"),
     path('edit/<int:id>', views.editemp,name="editemp"),
     path('Update/<int:id>',views.updateemp, name="updateemp"),
+    path('DeletePatient/<int:id>', views.delpatient, name="delpatient"),
     path('Delete/<int:id>', views.delemp, name="delemp"),
 ]

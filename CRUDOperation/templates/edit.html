@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <head>
-    <title>UPDATE DOCTOR INFORMATION</title>
+    <title>CRUD OPERATION WITH POSTGRESQL</title>
 </head>
 <body>
     <center>
         <h1>UPDATE DOCTOR INFORMATION</h1>
+        <h3>DJANGO TUTORIALS</h3>
         <hr/>
         <form method="POST" action = "/Update/{{EmpModel.id}}">
             {% csrf_token %}
@@ -19,7 +20,7 @@
                 <td><input type="text" name="empname" value="{{EmpModel.empname}}"></td>
             </tr>
                 <td>dateOfBirth</td>
-                <td><input type="text" name="dateofbirth" value="{{EmpModel.dateofbirth}}"></td>
+                <td><input type="text" name="dateofbirth" value=""></td>
             </tr>
             <tr>
                 <td>IIN</td>

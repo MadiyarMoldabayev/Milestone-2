@@ -8,33 +8,33 @@
         <h3>WRITTEN BY GROUP 4</h3>
         <hr/>
         <a href = "{% url 'insertemp' %}">Create New Doctor</a>
+        <a href = "{% url 'insertpatient' %}">Create New Patient</a>
         <table border="1">
             <h3>DOCTOR TABLE</h3>
 
             <tr>
-                <th>dateOfBirth</th>
-                <th>IIN</th>
                 <th>ID</th>
-                <th>empname</th>
-                <th>contact</th>
-                <th>departmentID</th>
-                <th>specializationID</th>
-                <th>experience</th>
-                <th>photo</th>
-                <th>category</th>
-                <th>price</th>
-                <th>schedule</th>
-                <th>education</th>
-                <th>rating</th>
-                <th>address</th>
+                <th>Doctor Name</th>
+                <th>Date of Birth</th>
+                <th>IIN</th>
+                <th>Contact Number</th>
+                <th>Department ID</th>
+                <th>Specilization ID</th>
+                <th>Experience</th>
+                <th>Photo</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Schedule</th>
+                <th>Education</th>
+                <th>Rating</th>
+                <th>Address</th>
             </tr>
             {% for result in data %}
             <tr>
-            
-                <td>{{result.dateofbirth}}</td>
-                <td>{{result.iin}}</td>
                 <td>{{result.id}}</td>
                 <td>{{result.empname}}</td>
+                <td>{{result.dateofbirth}}</td>
+                <td>{{result.iin}}</td>
                 <td>{{result.contact}}</td>
                 <td>{{result.departmentid}}</td>
                 <td>{{result.specializationid}}</td>
@@ -60,8 +60,8 @@
 
         <table border="2">
             <tr>
-                <th>ID</th>
-                <th>dateOfBirth</th>
+                <th>Patient ID</th>
+                <th>Date of Birth</th>
                 <th>IIN</th>
                 <th>Full Name</th>
                 <th>Blood Group</th>
@@ -86,8 +86,8 @@
                 <td>{{result.marital}}</td>
                 <td>{{result.registration}}</td>
                
-                <td><a href="edit/{{result.id}}">Edit</a></td>
-                <td><a href="Delete/{{result.id}}" onclick="return confirm('Are you sure that you want to delete it?')">Delete</a></td>
+                <td><a href="editpatient/{{result.id}}">Edit</a></td>
+                <td><a href="DeletePatient/{{result.id}}" onclick="return confirm('Are you sure that you want to delete it?')">Delete</a></td>
 
             </tr>
             

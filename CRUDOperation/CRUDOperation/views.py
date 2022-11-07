@@ -3,14 +3,44 @@ from CRUDOperation.models import EmpModel, Patient
 from django.contrib import messages
 from CRUDOperation.forms import Empforms, PatientForms
 
+def editpatient(request,id):
+    editempobj = Patient.objects.get(id=id)
+    return render(request, 'editpatients.html', {"EmpModel":editempobj})
 
 
+def updatepatient(request,id):
+    Updateemp = Patient.objects.get(id=id)
+    form = PatientForms(request.POST,instance=Updateemp)
+    if form.is_valid():
+        form.save()
+        messages.success(request,"Record is updated successfully")
+        return render(request, 'editpatients.html', {"EmpModel":Updateemp})
+
+def insertpatient(request):
+    if request.method == "POST":
+        if request.POST.get('dateofbirth') and request.POST.get('iin') and request.POST.get('fullname') and request.POST.get('bloodgroup') and request.POST.get('emergency_number') and request.POST.get('contact') and request.POST.get('address') and request.POST.get('marital') and request.POST.get('registration'):
+            saverecord = Patient()
+    
+            saverecord.dateofbirth = request.POST.get('dateofbirth')
+            saverecord.iin = request.POST.get('iin')
+            saverecord.fullname = request.POST.get('fullname')
+            saverecord.bloodgroup = request.POST.get('bloodgroup')
+            saverecord.emergency_number = request.POST.get('emergency_number')
+            saverecord.contact = request.POST.get('contact')
+            saverecord.address = request.POST.get('address')
+            saverecord.marital = request.POST.get('marital')
+            saverecord.registration = request.POST.get('registration')
+            saverecord.save()
+            messages.success(request, "Employee " + saverecord.fullname + " has been added successfully")
+            return render(request, 'insertpatients.html')
+    else:
+        return render(request, 'insertpatients.html')
     
 
 def showemp(request):
     showall = EmpModel.objects.all()
     showallpatients = Patient.objects.all()
-    return render(request,'index.html',{"data":showall,"patdata":showallpatients})
+    return render(request,'index.html',{"data":showall, "patdata":showallpatients})
 
 def insertemp(request):
     if request.method == "POST":
@@ -49,8 +79,15 @@ def updateemp(request,id):
         messages.success(request,"Record is updated successfully")
         return render(request, 'edit.html', {"EmpModel":Updateemp})
 
+
 def delemp(request,id):
     delemployee = EmpModel.objects.get(id=id)
     delemployee.delete()
     showdata = EmpModel.objects.all()
     return render(request, "delete.html", {"data":showdata})
+
+def delpatient(request,id):
+    delemployee = Patient.objects.get(id=id)
+    delemployee.delete()
+    showdata = Patient.objects.all()
+    return render(request, "deletepatients.html", {"data":showdata})

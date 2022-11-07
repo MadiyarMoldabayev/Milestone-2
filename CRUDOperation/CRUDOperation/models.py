@@ -4,10 +4,8 @@ from django.db import models
 
 class EmpModel(models.Model):
     empname = models.CharField(max_length=100)
-   
-    
     dateofbirth = models.DateField(max_length = 100)
-    iin = models.IntegerField()
+    iin = models.CharField(max_length = 12)
     contact = models.IntegerField()
     departmentid = models.CharField(max_length=100)
     specializationid = models.CharField(max_length=100)
@@ -20,19 +18,17 @@ class EmpModel(models.Model):
     rating = models.IntegerField()
     address = models.CharField(max_length=100)
 
-  
-
-
     class Meta:
         db_table = "employee"
 
+
 class Patient(models.Model):
     dateofbirth = models.DateField(max_length = 100)
-    iin = models.IntegerField()
+    iin = models.CharField(max_length = 100)
     fullname = models.CharField(max_length = 100)
     bloodgroup = models.CharField(max_length = 100)
-    emergency_number = models.IntegerField()
-    contact = models.IntegerField()
+    emergency_number = models.CharField(max_length = 100)
+    contact = models.CharField(max_length = 100)
     address = models.CharField(max_length = 100)
     marital = models.CharField(max_length = 100)
     registration = models.DateField(max_length =100)
