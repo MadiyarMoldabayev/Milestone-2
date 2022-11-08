@@ -1,6 +1,7 @@
 from pyexpat import model
 from statistics import mode
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 class EmpModel(models.Model):
     empname = models.CharField(max_length=100)
@@ -35,4 +36,6 @@ class Patient(models.Model):
 
     class Meta:
         db_table = "patient"
+
+
 

@@ -47,7 +47,7 @@
                 <td>{{result.rating}}</td>
                 <td>{{result.address}}</td>
 
-
+                <td><img src="https://image.shutterstock.com/image-vector/user-icon-vector-260nw-249026119.jpg" width = "150"></td>
                 <td><a href="edit/{{result.id}}">Edit</a></td>
                 <td><a href="Delete/{{result.id}}" onclick="return confirm('Are you sure that you want to delete it?')">Delete</a></td>
 
@@ -94,6 +94,7 @@
             {% endfor %}
 
         </table>
+        <p><a href="{% url 'logout' %}">Log Out</a></p>
 
 
     </center>

@@ -1,7 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from CRUDOperation.models import EmpModel, Patient
 from django.contrib import messages
 from CRUDOperation.forms import Empforms, PatientForms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
+
+
 
 def editpatient(request,id):
     editempobj = Patient.objects.get(id=id)
@@ -35,7 +39,7 @@ def insertpatient(request):
             return render(request, 'insertpatients.html')
     else:
         return render(request, 'insertpatients.html')
-    
+ 
 
 def showemp(request):
     showall = EmpModel.objects.all()

@@ -18,10 +18,15 @@ from django.urls import path
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.urls import include
+from django.views.generic.base import TemplateView # new
+
 
 urlpatterns = [
+    path('', TemplateView.as_view(template_name='home.html'), name='home'),  # new
+    path('accounts/', include("django.contrib.auth.urls")),
     path('admin/', admin.site.urls),
-    path('',views.showemp, name = "showemp"),
+    path('something/',views.showemp, name = "showemp"),
     path('Insert',views.insertemp,name="insertemp"),
     path('InsertPatient', views.insertpatient, name="insertpatient"),
     path('editpatient/<int:id>', views.editpatient, name="editpatient"),
