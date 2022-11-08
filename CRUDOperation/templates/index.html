@@ -28,6 +28,7 @@
                 <th>Education</th>
                 <th>Rating</th>
                 <th>Address</th>
+                <th>Photo_2</th>
             </tr>
             {% for result in data %}
             <tr>
@@ -70,6 +71,7 @@
                 <th>Address</th>
                 <th>Martial status</th>
                 <th>Registration date</th>
+                <th>Photo</th>
                 
             </tr>
             {% for result in patdata %}
@@ -85,7 +87,8 @@
                 <td>{{result.address}}</td>
                 <td>{{result.marital}}</td>
                 <td>{{result.registration}}</td>
-               
+                <td><img src="https://image.shutterstock.com/image-vector/user-icon-vector-260nw-249026119.jpg" width = "150"></td>
+
                 <td><a href="editpatient/{{result.id}}">Edit</a></td>
                 <td><a href="DeletePatient/{{result.id}}" onclick="return confirm('Are you sure that you want to delete it?')">Delete</a></td>
 

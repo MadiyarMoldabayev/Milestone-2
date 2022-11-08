@@ -35,7 +35,7 @@ def insertpatient(request):
             saverecord.marital = request.POST.get('marital')
             saverecord.registration = request.POST.get('registration')
             saverecord.save()
-            messages.success(request, "Employee " + saverecord.fullname + " has been added successfully")
+            messages.success(request, "Patient " + saverecord.fullname + " has been added successfully")
             return render(request, 'insertpatients.html')
     else:
         return render(request, 'insertpatients.html')
@@ -65,7 +65,7 @@ def insertemp(request):
             saverecord.rating = request.POST.get('rating')
             saverecord.address = request.POST.get('address')
             saverecord.save()
-            messages.success(request, "Employee " + saverecord.empname + " has been added successfully")
+            messages.success(request, "Doctor " + saverecord.empname + " has been added successfully")
             return render(request, 'insert.html')
     else:
         return render(request, 'insert.html')
